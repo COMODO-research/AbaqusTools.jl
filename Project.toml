@@ -2,3 +2,11 @@ name = "AbaqusTools"
 uuid = "2e6fa817-2ad1-4e93-973c-76fafc281e02"
 version = "0.1.0"
 authors = ["Kevin-Mattheus-Moerman <kevin.moerman@gmail.com>"]
+
+[deps]
+FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+
+[compat]
+FileIO = "1.17.1"
+Printf = "1.11.0"
