@@ -51,7 +51,8 @@ end
 
 function addSolidSection(file_io, elementSetName, materialName)
     write(file_io, "*Solid Section, elset=$elementSetName, material=$materialName \n")
-    write(file_io, "*, \n")    
+    write(file_io, "*, \n") 
+    # it should be    write(file_io, ", \n") remove the *
 end
 
 function endPart(file_io)
@@ -70,7 +71,8 @@ function addInstance(file_io; name="Part-1-assembly", part="Part-1")
     write(file_io, "* Instance, name=$name, part=$part \n")
     write(file_io, "* End Instance \n")
 end
-
+# when adding *elset, there should NOT be instance
+# for example, *Elset, elset=ElementSet-1
 function addIndexSet(file_io, setName, ind; type=:nodes, instance="", nRow=16, indexOffset=0)
     if type == :nodes
         if !isempty(instance)
