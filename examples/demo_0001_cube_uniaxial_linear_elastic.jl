@@ -84,7 +84,7 @@ addHeader(file_io, jobName)
 addPart(file_io, partName_1; firstTime = true)
     addNodes(file_io, V)
     addElements(file_io, E, elementType_1; indexOffset=0)
-    addIndexSet(file_io, elementSetName_1, elementIds_1; instance=instanceName_1, type=:elements)
+    addIndexSet(file_io, elementSetName_1, elementIds_1; type=:elements)
     addSolidSection(file_io, elementSetName_1, materialName_1)
 endPart(file_io)
 
