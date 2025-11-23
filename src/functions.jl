@@ -51,8 +51,8 @@ end
 
 function addSolidSection(file_io, elementSetName, materialName)
     write(file_io, "*Solid Section, elset=$elementSetName, material=$materialName \n")
-    write(file_io, "*, \n") 
-    # it should be    write(file_io, ", \n") remove the *
+    write(file_io, ", \n") 
+
 end
 
 function endPart(file_io)
