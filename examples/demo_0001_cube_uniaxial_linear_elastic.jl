@@ -27,9 +27,9 @@ boxEl = ceil.(Int,boxDim./pointSpacing) # Number of elements to use in each dire
 
 E, V, F, Fb, Cb = hexbox(boxDim,boxEl)
 
-bcSupportList_X = elements2indices(Fb[Cb.==1])
+bcSupportList_X = elements2indices(Fb[Cb.==5])
 bcSupportList_Y = elements2indices(Fb[Cb.==4])
-bcSupportList_Z = elements2indices(Fb[Cb.==5])
+bcSupportList_Z = elements2indices(Fb[Cb.==1])
 bcPrescribeList = elements2indices(Fb[Cb.==2])
 
 # Visualisation
