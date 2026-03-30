@@ -42,15 +42,18 @@ M = GeometryBasics.Mesh(Vbs,Fbs)
 fig = Figure(size=(1600,800))
 
 ax1 = AxisGeom(fig[1, 1], title = "Boundary faces with boundary markers for the hexahedral mesh")
-hp2 = meshplot!(ax1, Fbs, Vbs; strokewidth=3, color=Cbs_V, colormap=cmap)
-Colorbar(fig[1, 2], hp2)
+hp1 = meshplot!(ax1, Fbs, Vbs; strokewidth=3, color=Cbs_V, colormap=cmap)
+Colorbar(fig[1, 2], hp1)
 
 ax2 = AxisGeom(fig[1, 3], title = "Boundary faces with boundary markers for the hexahedral mesh")
-hp3 = meshplot!(ax2, Fbs, Vbs; strokewidth=1.0, color=(:white, 0.5), transparency=true)
-scatter!(ax2, V[bcSupportList_X], color=:red, markersize=25)
-scatter!(ax2, V[bcSupportList_Y], color=:green, markersize=25)
-scatter!(ax2, V[bcSupportList_Z], color=:blue, markersize=25)
-scatter!(ax2, V[bcPrescribeList], color=:black, markersize=25)
+hp2 = meshplot!(ax2, Fbs, Vbs; strokewidth=1.0, color=(:white, 0.5), transparency=true)
+
+hp3 = scatter!(ax2, V[bcSupportList_Z], color=:blue, markersize=25)
+hp4 = scatter!(ax2, V[bcPrescribeList], color=:black, markersize=25)
+hp5 = scatter!(ax2, V[bcSupportList_X], color=:red, markersize=25)
+hp6 = scatter!(ax2, V[bcSupportList_Y], color=:green, markersize=25)
+
+Legend(fig[1, 4], [hp3, hp4, hp5, hp6], ["Bottom nodes", "Top nodes", "Side 1 nodes", "Side 2 nodes"])
 
 screen = display(GLMakie.Screen(), fig)
 
@@ -118,4 +121,5 @@ startStep(file_io; name="Step-1", nlgeom="YES", type="Static", parameters=[0.1, 
 endStep(file_io)
 close(file_io)
 
+# Start Abaqus analysis
 # run_abaqus(inp_filename; ABAQUS_EXEC="abaqus", job="job-1")  
