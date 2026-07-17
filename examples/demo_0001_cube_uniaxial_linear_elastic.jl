@@ -69,7 +69,7 @@ nodeIds_1  = 1:length(V)
 nodeSetName_1 = "NodeSet-1"
 elementSetName_1 = "ElementSet-1"
 materialName_1 = "Material-1"
-instanceName_1  = "Cube-assembly-1"
+`instanceName_1  = "Cube-assembly-1"`
 nodeSetName_1 ="all"
 nodeSetName_bcSupportList_X = "bcSupportList_X"
 nodeSetName_bcSupportList_Y = "bcSupportList_Y"
@@ -100,7 +100,7 @@ startAssembly(file_io; name="Assembly-1")
     addIndexSet(file_io, nodeSetName_bcPrescribeList, bcPrescribeList; instance=instanceName_1, type=:nodes, indexOffset=0)
 endAssembly(file_io)
 
-addMaterial(file_io; name=materialName_1, type="Elastic", parameters=[E_youngs, v_poisson])
+addMaterial(file_io; name=materialName_1, category="Elastic", parameters=[E_youngs, v_poisson])
 
 startStep(file_io; name="Step-1", nlgeom="YES", type="Static", parameters=[0.1, 1.0, 1e-5, 0.1])
     addBoundary(file_io; setName=nodeSetName_bcSupportList_X, vals=[1, 1])
